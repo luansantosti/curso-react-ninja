@@ -5,9 +5,17 @@ import LikeButton from './likeButton'
 import SearchButton from './searchButton';
 
 class App extends Component {
+  constructor () {
+    super()
+    this.state = {
+      text: 'Fernando'
+    }
+  }
+
   render () {
     return (
-      <div>
+      <div onClick={ () => this.setState({text: 'Daciuk'})}>
+        {this.state.text}
         <LikeButton />
         <SearchButton/>
       </div>
