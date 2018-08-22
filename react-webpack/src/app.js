@@ -1,11 +1,20 @@
 'use stric'
 
-import React from 'react'
+import React, { Component } from 'react'
+import Title from './title'
 
-const App = React.createClass({
-  render: function () {
-    return <div>My app</div>
+class App extends Component {
+  render () {
+    return (
+      <div>
+        {['blue', 'red', 'blue'].map((square, index) => ( 
+          <div key={ index } color={ square }>
+            Lista array: { square }
+          </div>
+        ))}
+      </div>
+    )
   }
-})
+}
 
 export default App
