@@ -1,17 +1,15 @@
 'use stric'
 
 import React, { Component } from 'react'
-import Title from './title'
+import LikeButton from './likeButton'
+import SearchButton from './searchButton';
 
 class App extends Component {
   render () {
     return (
       <div>
-        {['blue', 'red', 'blue'].map((square, index) => ( 
-          <div key={ index } color={ square }>
-            Lista array: { square }
-          </div>
-        ))}
+        <LikeButton />
+        <SearchButton/>
       </div>
     )
   }
