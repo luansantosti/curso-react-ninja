@@ -1,23 +1,27 @@
 'use stric'
 
 import React, { Component } from 'react'
-import LikeButton from './likeButton'
-import SearchButton from './searchButton';
+
+import Timer from './timer'
 
 class App extends Component {
   constructor () {
     super()
     this.state = {
-      text: 'Fernando'
+      showTimer: true
     }
+
   }
 
   render () {
     return (
-      <div onClick={ () => this.setState({text: 'Daciuk'})}>
-        {this.state.text}
-        <LikeButton />
-        <SearchButton/>
+      <div>
+        { this.state.showTimer && <Timer /> }
+        <button onClick={ () => {
+          this.setState({
+            showTimer: !this.state.showTimer
+          })
+        }}>Show / Hide timer</button>
       </div>
     )
   }
