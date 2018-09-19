@@ -8,15 +8,20 @@ class App extends Component {
   constructor () {
     super()
     this.state = {
-      showTimer: true
+      showTimer: true,
+      time: 0
     }
+  }
 
+  componentWillReceiveProps (nextProps) {
+    console.log('componentwillreceive')
   }
 
   render () {
     return (
       <div>
-        { this.state.showTimer && <Timer /> }
+        { this.state.showTimer && <Timer time={this.state.time} /> }
+
         <button onClick={ () => {
           this.setState({
             showTimer: !this.state.showTimer
