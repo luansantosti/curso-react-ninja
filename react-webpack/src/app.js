@@ -2,31 +2,31 @@
 
 import React, { Component } from 'react'
 
-import Timer from './timer'
-
 class App extends Component {
-  constructor () {
+  constructor() {
     super()
     this.state = {
-      showTimer: true,
-      time: 0
+      checked: false,
+      showContent: false
     }
   }
-
-  componentWillReceiveProps (nextProps) {
-    console.log('componentwillreceive')
-  }
-
   render () {
     return (
       <div>
-        { this.state.showTimer && <Timer time={this.state.time} /> }
+        <label>
+          <input type="checkbox" checked={this.state.checked} onChange={ () => {
+            this.setState({
+              checked: !this.state.checked
+            }, () => {
+              this.setState({
+                showContent: this.state.checked
+              })
+            })
+          }}/>
+          Mostrar conteúdo
+        </label>
 
-        <button onClick={ () => {
-          this.setState({
-            showTimer: !this.state.showTimer
-          })
-        }}>Show / Hide timer</button>
+        { this.state.showContent && <div>Conteúdo</div>}
       </div>
     )
   }
