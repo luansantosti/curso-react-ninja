@@ -1,6 +1,7 @@
 'use stric'
 
 import React, { Component } from 'react'
+import Square from './square'
 
 class App extends Component {
   constructor() {
@@ -27,6 +28,13 @@ class App extends Component {
         </label>
 
         { this.state.showContent && <div>Conteúdo</div>}
+
+
+        {['red','blue', 'green'].map( (square, index) => (
+          <Square key={index} color={square} title='Olá'/>
+        ))}          
+        
+
       </div>
     )
   }

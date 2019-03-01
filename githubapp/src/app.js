@@ -10,7 +10,7 @@ import Repos from './components/repos'
 const App = () => (
   <div className='app'>
     <Search />  
-    <UserInfo />
+    <UserInfo/>
     <Actions />
     <Repos 
       className='repos' 
