@@ -2,39 +2,23 @@
 
 import React, { Component } from 'react'
 import Square from './square'
+import Button from './button'
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      checked: false,
-      showContent: false
+      color: 'green'
     }
   }
   render () {
     return (
       <div>
-        <label>
-          <input type="checkbox" checked={this.state.checked} onChange={ () => {
-            this.setState({
-              checked: !this.state.checked
-            }, () => {
-              this.setState({
-                showContent: this.state.checked
-              })
-            })
-          }}/>
-          Mostrar conteúdo
-        </label>
+        <Square color={this.state.color} />
 
-        { this.state.showContent && <div>Conteúdo</div>}
-
-
-        {['red','blue', 'green'].map( (square, index) => (
-          <Square key={index} color={square} title='Olá'/>
-        ))}          
-        
-
+        {['red', 'yellow', 'blue'].map( color => (
+          <Button key={color} handleClick={() => (this.setState({ color }))}>{color}</Button>
+        ))}
       </div>
     )
   }
