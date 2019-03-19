@@ -10,21 +10,31 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      timer: 0
+      checked: false,
+      showContent: false
     }
   }
   render () {
     return (
       <div>
-        {/* <Square color={this.state.color} />
-
-        {['red', 'yellow', 'blue'].map( color => (
-          <Button key={color} handleClick={() => (this.setState({ color }))}>{color}</Button>
-        ))} */}
-
-        <Timer time={this.state.timer}/>
-
-        <button onClick={() => (this.setState({ timer: 10}))}> Add 10</button>
+        <label>
+          <input 
+            type="checkbox" 
+            value={this.state.checked} 
+            onChange={ () => {
+              this.setState({
+                checked: !this.state.checked
+              }, () => {
+                this.setState({
+                  showContent: this.state.checked
+                })
+              })
+            }}
+          />
+          Mostrar conteúdo
+        </label>
+         
+        { this.state.showContent && <div>Conteúdo aqui</div> }
 
       </div>
     )
