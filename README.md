@@ -1,3 +1,5 @@
 # curso-react-ninja
-``` npm install ```
+``` 
+npm install 
+```
 ``` npm start ```
