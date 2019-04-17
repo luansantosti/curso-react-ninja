@@ -10,7 +10,8 @@ body {
   padding: 0;
 }
 
-div[data-js="app"] {
+.app {
+  float: left;
   padding: 30px;
   width: 100%;
 }
@@ -23,7 +24,6 @@ div[data-js="app"] {
   font-size: 30px;
   padding: 10px;
   width: 100%;
-  border: 1px solid #e6e6e6;
 }
 
 .user-info img {
