@@ -3,10 +3,9 @@
 const path = require('path')
 const webpack = require('webpack')
 const validate = require('webpack-validator')
-const DashboardPlugin = require('webpack-dashboard/plugin')
 
 const HtmlPlugin = require('html-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const DashboardPlugin = require('webpack-dashboard/plugin')
 
 module.exports = validate({
   devtool: 'source-map',
@@ -20,17 +19,17 @@ module.exports = validate({
 
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: '[name]-[hash].js',
     publicPath: ''
   },
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new ExtractTextPlugin('[name]-[hash].css'),
     new DashboardPlugin(),
+
     new HtmlPlugin({
-      title: 'GitHub App',
-      template: path.join(__dirname, 'src', 'html', 'template.html')
+      title: 'GitHub app',
+      template: path.join(__dirname, 'src', 'html', 'template-dev.html')
     })
   ],
 
@@ -53,5 +52,12 @@ module.exports = validate({
       include: /src/,
       loaders: ['style', 'css']
     }]
+  },
+
+  resolve: {
+    alias: {
+      src: path.join(__dirname, 'src'),
+      components: path.join(__dirname, 'src', 'components')
+    }
   }
 })
